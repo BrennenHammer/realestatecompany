@@ -1,82 +1,80 @@
 import React from 'react';
 import styled from 'styled-components';
-import homeImage from '../images/homeImage.jpeg';
 
-const Home = () => {
+const Events = () => {
+  const sampleEvents = [
+    { id: 1, title: 'Open House - Luxury Villa', date: '2024-01-10', location: '123 Oceanview Drive' },
+    { id: 2, title: 'First-Time Homebuyer Seminar', date: '2024-01-15', location: 'Real Estate Office' },
+    { id: 3, title: 'Community Real Estate Expo', date: '2024-01-20', location: 'Downtown Convention Center' },
+  ];
   return (
-    <HomeContainer>
-      <HeaderName>
-        <h1>Real Estate</h1>
-      </HeaderName>
-      <ContentWrapper>
-        <Name>
-          Real Estate Name
-        </Name>
-        <Description>
-          Find your dream home
-        </Description>
-        <CallToAction>
-          <button>Learn More</button>
-        </CallToAction>
-      </ContentWrapper>
-    </HomeContainer>
+    <EventsContainer>
+      <Header3>Upcoming Events</Header3>
+      <Description3>
+        Explore our upcoming real estate events. Attend open houses, seminars, and expos to find your dream home or learn more about the market.
+      </Description3>
+      <EventList>
+        {sampleEvents.map((event) => (
+          <EventCard key={event.id}>
+            <EventTitle>{event.title}</EventTitle>
+            <EventDetails>
+              <p>Date: {event.date}</p>
+              <p>Location: {event.location}</p>
+            </EventDetails>
+          </EventCard>
+        ))}
+      </EventList>
+    </EventsContainer>
   );
 };
 
-export default Home;
+export default Events;
 
-const HomeContainer = styled.div`
-  height: 100vh;
-  background-image: url(${homeImage});
-  background-size: cover;
-  background-position: center;
-  position: relative;
+const EventsContainer = styled.div`
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
-const HeaderName = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-  h1 {
-    font-size: 2.5rem;
-    color: black;
-    font-family: cursive;
-    margin: 0;
+const Header3 = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+`;
+
+const Description3 = styled.p`
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #555;
+`;
+
+const EventList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+`;
+
+const EventCard = styled.div`
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
   }
 `;
 
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-  padding: 150px 20px 0; /* Adjusted padding */
-`;
-
-const Name = styled.div`
-  font-size: 3.5rem;
-  color: black;
-  font-family: cursive;
+const EventTitle = styled.h2`
+  font-size: 1.5rem;
+  color: #222;
   margin-bottom: 10px;
 `;
 
-const Description = styled.p`
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 20px;
-`;
-
-const CallToAction = styled.div`
-  button {
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-  }
+const EventDetails = styled.div`
+  font-size: 1rem;
+  color: #555;
 `;
