@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Navbar from '../components/Navbar'
 const About = () => {
   return (
     <AboutContainer>
+             <Navbar />
+
       <h1>About Us</h1>
       <p>
         At [Your Company Name], we are committed to providing the best [products/services] 
@@ -34,7 +36,7 @@ export default About;
 const AboutContainer = styled.div`
   padding: 20px;
   text-align: center;
-
+  background-color: lightgrey;
   h1 {
     font-size: 2.5em;
     margin-bottom: 20px;

@@ -1,26 +1,56 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import homeImage from '../images/homeImage.jpeg';
-
+import homeWorthImage from '../images/homeworthimage.jpeg';
+import listingAlertImage from '../images/listingalertimage.jpeg';
 const Home = () => {
   const sampleEvents = [
     { id: 1, title: 'Open House - Luxury Villa', date: '2024-01-10', location: '123 Oceanview Drive' },
     { id: 2, title: 'First-Time Homebuyer Seminar', date: '2024-01-15', location: 'Real Estate Office' },
     { id: 3, title: 'Community Real Estate Expo', date: '2024-01-20', location: 'Downtown Convention Center' },
   ];
+  const services = [
+    {
+      title: 'Home Buying Assistance',
+      description:
+        'We guide you through every step of the home buying process, ensuring you find the perfect home that fits your needs and budget.',
+      icon: '🏡',
+    },
+    {
+      title: 'Home Selling Services',
+      description:
+        'Our team helps you sell your home quickly and at the best price with expert market analysis and personalized marketing strategies.',
+      icon: '📈',
+    },
+    {
+      title: 'Real Estate Investments',
+      description:
+        'Whether you’re a seasoned investor or just starting out, we provide insights and opportunities to grow your real estate portfolio.',
+      icon: '💼',
+    },
+    {
+      title: 'Market Analysis',
+      description:
+        'Get detailed reports and professional advice on the current real estate market to make informed decisions.',
+      icon: '📊',
+    },
+    {
+      title: 'Open House Events',
+      description:
+        'Join our open house events to explore properties and meet our agents in person.',
+      icon: '🏠',
+    },
+    {
+      title: 'Property Management',
+      description:
+        'We offer professional property management services to ensure your rental property is maintained and profitable.',
+      icon: '🔑',
+    },
+  ];
   return (
     <HomeContainer>
-      <Header>
-        <HeaderName>
-          <h1>D Real Estate</h1>
-        </HeaderName>
-        <Navigation>
-          <NavItem href="/listings">Listings</NavItem>
-          <NavItem href="/services">Services</NavItem>
-          <NavItem href="/about">About Us</NavItem>
-          <NavItem href="/events">Upcoming Events</NavItem>
-        </Navigation>
-      </Header>
+       <Navbar />
       <ContentWrapper>
         <Name>
           Default Real Estate
@@ -92,6 +122,51 @@ const Home = () => {
         </ContactForm>
       </ContactSection>
     </AboutContainer>
+    <ServicesContainer>
+      <Header5>Our Services</Header5>
+      <ServiceList>
+        {services.map((service, index) => (
+          <ServiceCard key={index}>
+            <Icon>{service.icon}</Icon>
+            <ServiceTitle>{service.title}</ServiceTitle>
+            <ServiceDescription>{service.description}</ServiceDescription>
+          </ServiceCard>
+        ))}
+      </ServiceList>
+    </ServicesContainer>
+    <PageContainer>
+      <Section>
+        <TextContainer>
+          <Header6>Find Your Home Worth</Header6>
+          <Description6>
+            Curious about your home's value? Get an instant and accurate home valuation today!
+          </Description6>
+          <InputContainer>
+            <Input6 type="email" placeholder="Enter your email" />
+            <SubmitButton>Get Home Worth</SubmitButton>
+          </InputContainer>
+        </TextContainer>
+        <ImageContainer>
+          <Image src={homeWorthImage} alt="Home Worth" />
+        </ImageContainer>
+      </Section>
+
+      <Section>
+        <ImageContainer>
+          <Image src={listingAlertImage} alt="Listing Alert" />
+        </ImageContainer>
+        <TextContainer>
+          <Header6>Sign Up for Listing Alerts</Header6>
+          <Description6>
+            Be the first to know about new listings in your area. Subscribe to get alerts directly to your inbox.
+          </Description6>
+          <InputContainer>
+            <Input6 type="email" placeholder="Enter your email" />
+            <SubmitButton6>Subscribe</SubmitButton6>
+          </InputContainer>
+        </TextContainer>
+      </Section>
+    </PageContainer>
     </HomeContainer>
     
   );
@@ -264,7 +339,7 @@ const EventCard = styled.div`
   border: 1px solid #ddd;
   border-radius: 5px;
   border: 1px solid lightgrey;
-  padding: 20px;
+  padding: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 
@@ -286,7 +361,7 @@ const EventDetails = styled.div`
 const AboutContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  background-color: grey;
+  background-color: lightgrey;
   padding: 20px;
 `;
 
@@ -382,4 +457,155 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+`;
+const ServicesContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: lightgrey;
+  padding: 20px;
+`;
+
+const Header5 = styled.h1`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+`;
+
+const ServiceList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ServiceCard = styled.div`
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+const Icon = styled.div`
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+`;
+
+const ServiceTitle = styled.h2`
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+`;
+
+const ServiceDescription = styled.p`
+  font-size: 1rem;
+  color: #555;
+`;
+const PageContainer = styled.div`
+  width: 100%;
+  background-color: lightgrey;
+`;
+
+const Section = styled.div`
+  display: flex;
+  align-items: center;
+  height: 50vh; /* Adjust height for better visibility */
+  width: 100%;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    height: auto; /* Let content determine height */
+    padding: 20px; /* Add padding for spacing */
+  }
+`;
+
+
+const TextContainer = styled.div`
+  flex: 1;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const Header6 = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 10px;
+`;
+
+const Description6 = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const Input6 = styled.input`
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+`;
+
+const SubmitButton6 = styled.button`
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const ImageContainer = styled.div`
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    margin-bottom: -20px;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  max-height: 100%; /* Ensures the image does not exceed the viewport height */
+  object-fit: cover;
+  border-radius: 2px;
 `;

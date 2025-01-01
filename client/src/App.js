@@ -4,7 +4,9 @@ import AboutPage from './pages/About';
 import ListingsPage from './pages/Listings';
 import ServicesPage from './pages/services';
 import EventsPage from './pages/Events';
-
+import Navbar from './components/Navbar'
+import Listings from './components/Listings'
+import Homeworthandlistingalerts from './pages/Homeworthandlistingalerts'
 function App() {
   return (
     <Router>
@@ -14,7 +16,7 @@ function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/listings" element={<ListingsPage />} />
-
+        <Route path="/homeworthandlistingalerts" element={<Homeworthandlistingalerts />} />
       </Routes>
     </Router>
   );

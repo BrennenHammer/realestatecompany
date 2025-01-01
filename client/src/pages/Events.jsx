@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Navbar from '../components/Navbar';
 const Events = () => {
   const sampleEvents = [
     { id: 1, title: 'Open House - Luxury Villa', date: '2024-01-10', location: '123 Oceanview Drive' },
@@ -9,6 +9,8 @@ const Events = () => {
   ];
   return (
     <EventsContainer>
+             <Navbar />
+
       <Header3>Upcoming Events</Header3>
       <Description3>
         Explore our upcoming real estate events. Attend open houses, seminars, and expos to find your dream home or learn more about the market.
