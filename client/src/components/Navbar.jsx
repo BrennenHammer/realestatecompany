@@ -45,14 +45,18 @@ const Navigation = styled.nav`
 `;
 
 const NavItem = styled.a`
-  color: white;
-  margin: 0 0px;
-  font-size: 1.2rem;
+  color: black;
+  margin: 0 5px;
+  font-size: 1.3rem;
   font-weight: bold;
   margin-right: 50px;
   text-decoration: none;
   transition: color 0.2s;
+   @media (max-width: 1000px){
+    display: none;
+    }
   &:hover {
     color: #007bff;
   }
+   
 `;
