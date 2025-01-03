@@ -62,7 +62,7 @@ const listingSchema = new mongoose.Schema({
 
 // Custom Validation for Residence Type
 listingSchema.path('residenceType').validate((value) => {
-  return.includes(value);
+  return collection.includes(value);
 }, 'Invalid residence type');
 
 // Error Handling for Validation Errors

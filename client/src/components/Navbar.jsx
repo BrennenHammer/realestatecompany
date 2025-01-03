@@ -8,6 +8,7 @@ const Navbar = () => {
         <h1>D Real Estate</h1>
       </HeaderName>
       <Navigation>
+        <NavItem href="/">Home</NavItem>
         <NavItem href="/listings">Listings</NavItem>
         <NavItem href="/services">Services</NavItem>
         <NavItem href="/about">About Us</NavItem>

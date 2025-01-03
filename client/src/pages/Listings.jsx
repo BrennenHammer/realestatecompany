@@ -41,7 +41,7 @@ const ListingsContainer = styled.div`
   }
 `;
 const ListingsContent = styled.div`
-border: 1px solid lightgreen;
+border: 1px solid black;
 padding: 10px;
 height: 90vh;
 margin-top: 30px;

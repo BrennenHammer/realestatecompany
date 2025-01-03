@@ -184,44 +184,6 @@ const HomeContainer = styled.div`
   border-bottom: 10px solid gray;
 `;
 
-const Header = styled.header`
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-`;
-
-const HeaderName = styled.div`
-  h1 {
-    font-size: 2.8rem;
-    color: black;
-    font-family: cursive;
-    margin: 0;
-  }
-`;
-
-const Navigation = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const NavItem = styled.a`
-  color: white;
-  margin: 0 0px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-right: 50px;
-  text-decoration: none;
-  transition: color 0.2s;
-  &:hover {
-    color: #007bff;
-  }
-`;
-
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;

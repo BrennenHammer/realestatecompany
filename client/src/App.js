@@ -4,8 +4,8 @@ import AboutPage from './pages/About';
 import ListingsPage from './pages/Listings';
 import ServicesPage from './pages/services';
 import EventsPage from './pages/Events';
-import Navbar from './components/Navbar'
-import Listings from './components/Listings'
+//import Navbar from './components/Navbar'
+//import Listings from './components/Listings'
 import Homeworthandlistingalerts from './pages/Homeworthandlistingalerts'
 function App() {
   return (
