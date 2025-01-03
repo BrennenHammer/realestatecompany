@@ -93,16 +93,26 @@ const Home = () => {
       </EventList>
     </EventsContainer>
     <AboutContainer>
-      <Header4>About Us</Header4>
-      <Description4>
-        Welcome to D Real Estate, your personal partner in buying, selling, and investing in properties. With my experience and a passion for helping clients find their dream homes, I pride myself on offering unparalleled service and expertise.
-      </Description4>
-      <MissionSection>
-        <MissionHeader>Our Mission</MissionHeader>
-        <MissionText>
-          At D Real Estate, my mission is to simplify the real estate process and provide personalized solutions tailored to your unique needs. Whether you're a first-time buyer or a seasoned investor, I am here to guide you every step of the way.
-        </MissionText>
-      </MissionSection>
+
+       <Content>
+        <h1>About Us</h1>
+        <p>
+          At <span>[Your Company Name]</span>, we are driven by a dedication to excellence and 
+          a passion for delivering top-tier <span>[products/services]</span>. Founded on the principles 
+          of integrity and innovation, we work tirelessly to meet the needs of our clients while 
+          setting new benchmarks in quality. Our journey is guided by a single vision: making a 
+          meaningful impact in everything we do.
+        </p>
+      </Content>
+
+      <ImageSection>
+        <h2>About Our Founder</h2>
+        <img src="https://via.placeholder.com/300x300" alt="Founder Portrait" />
+        <Caption>
+          [Your Founder’s Name]—the visionary behind our mission, inspiring us every step of the way.
+        </Caption>
+      </ImageSection>
+    </AboutContainer>
       <ContactSection>
         <ContactHeader>Contact me</ContactHeader>
         <ContactDetails>
@@ -121,7 +131,6 @@ const Home = () => {
           </Form>
         </ContactForm>
       </ContactSection>
-    </AboutContainer>
     <ServicesContainer>
       <Header5>Our Services</Header5>
       <ServiceList>
@@ -143,7 +152,7 @@ const Home = () => {
           </Description6>
           <InputContainer>
             <Input6 type="email" placeholder="Enter your email" />
-            <SubmitButton>Get Home Worth</SubmitButton>
+            <SubmitButton6>Get Home Worth</SubmitButton6>
           </InputContainer>
         </TextContainer>
         <ImageContainer>
@@ -320,38 +329,65 @@ const EventDetails = styled.div`
   font-size: 1rem;
   color: #555;
 `;
+
 const AboutContainer = styled.div`
-  max-width: 1200px;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+`;
+
+const Content = styled.div`
+  max-width: 700px;
   margin: 0 auto;
-  background-color: lightgrey;
   padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 2em;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+
+    span {
+      color: black;
+      font-weight: bold;
+    }
+  }
 `;
 
-const Header4 = styled.h1`
+const ImageSection = styled.section`
+  margin-top: 40px;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+
+  h2 {
+    font-size: 1.8em;
+    color: black;
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: 4px solid #d0d0d0;
+    margin-bottom: 15px;
+  }
 `;
 
-const Description4 = styled.p`
-  font-size: 1.2rem;
-  text-align: center;
-  margin-bottom: 40px;
-`;
-
-const MissionSection = styled.div`
-  margin-bottom: 40px;
-`;
-
-const MissionHeader = styled.h2`
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 10px;
-`;
-
-const MissionText = styled.p`
-  font-size: 1.2rem;
-  text-align: center;
+const Caption = styled.p`
+  font-size: 1em;
+  color: #555;
+  margin-top: 10px;
 `;
 
 const ContactSection = styled.div`
@@ -411,7 +447,7 @@ const SubmitButton = styled.button`
   padding: 10px 20px;
   font-size: 1.2rem;
   color: #fff;
-  background-color: #007bff;
+  background-color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -498,7 +534,8 @@ const Section = styled.div`
 
 const TextContainer = styled.div`
   flex: 1;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -539,9 +576,10 @@ const Input6 = styled.input`
 `;
 
 const SubmitButton6 = styled.button`
-  padding: 10px 20px;
+  padding: 10px 10px;
+  margin-bottom: 5px;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
