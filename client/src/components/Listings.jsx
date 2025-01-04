@@ -20,7 +20,6 @@ const Listings = () => {
 
   return (
     <ListingsContainer>
-      <Navbar />
       <h1>Available Listings</h1>
       <p>Browse through our available listings and find your perfect match.</p>
       <ListingsContent>

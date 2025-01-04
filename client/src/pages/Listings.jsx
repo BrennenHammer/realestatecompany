@@ -11,9 +11,9 @@ const Listings = () => {
     <div>Listing 1</div>
     <div>Listing 2</div>
     <div>Listing 3</div>
-    <div>Listing 1</div>
-    <div>Listing 2</div>
-    <div>Listing 3</div>
+    <div>Listing 4</div>
+    <div>Listing 5</div>
+    <div>Listing 6</div>
     <ListingButton>All listings</ListingButton>
   </ListingsContent>
     </ListingsContainer>
@@ -44,7 +44,7 @@ const ListingsContent = styled.div`
 border: 1px solid black;
 padding: 10px;
 height: 90vh;
-margin-top: 30px;
+margin-top: 40px;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 border-radius: 10px;

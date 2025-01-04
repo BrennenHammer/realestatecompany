@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import styled from 'styled-components';
 
 const Navbar = () => {
@@ -7,7 +8,9 @@ const Navbar = () => {
   return (
     <Header>
       <HeaderName>
-        <h1>D Real Estate</h1>
+        <Link to="/" style ={{ textDecoration: 'none'}}> {/* Wrap the h1 with the Link */}
+          <h1>D Real Estate</h1>
+        </Link>
       </HeaderName>
       <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
         ☰
@@ -37,10 +40,12 @@ const Header = styled.header`
 
 const HeaderName = styled.div`
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.3rem;
     color: black;
+    text-decoration: none;
     font-family: cursive;
     margin: 0;
+    cursor: pointer;
   }
 `;
 
@@ -95,7 +100,6 @@ const NavItem = styled.a`
     margin: 10px 0;
     text-align: center;
     width: 50%;
-
-  font-size: 1.0rem;
+    font-size: 1.0rem;
   }
 `;
