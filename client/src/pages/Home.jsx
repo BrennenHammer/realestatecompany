@@ -199,7 +199,7 @@ const ContentWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  padding: 80px 20px 0;
+  padding: 79px 20px 0;
 `;
 
 const Name = styled.div`

@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 const listingSchema = new mongoose.Schema({
   title: {
     type: String,
-    unique: true,
+    unique: true, // Automatically creates an index
     required: true,
     trim: true,
+    minlength: 3,  // Ensure title has a minimum length
   },
   description: {
     type: String,
     required: true,
     trim: true,
+    minlength: 10, // Ensure description is meaningful
   },
   price: {
     type: Number,
@@ -22,11 +24,19 @@ const listingSchema = new mongoose.Schema({
     type: String,
     validate: {
       validator: (image) => {
-        // Basic image URL validation
-        return /^(http|https):\/\/[^\s]+(\.(jpg|jpeg|png|gif))$/i.test(image);
+        // Basic image URL validation (supports more formats)
+        return /^(http|https):\/\/[^\s]+(\.(jpg|jpeg|png|gif|bmp|webp|svg))$/i.test(image);
       },
       message: '{VALUE} is not a valid image URL',
     },
+    validate: [
+      {
+        validator: function(value) {
+          return value.length <= 15; // Limit the number of images to 5
+        },
+        message: 'You can only upload up to 5 images.',
+      }
+    ],
   }],
   bathrooms: {
     type: Number,
@@ -57,7 +67,21 @@ const listingSchema = new mongoose.Schema({
     },
     default: 'House',
   },
+  address: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  status: {
+    type: String,
+    enum: ['Active', 'Sold', 'Archived'],
+    default: 'Active',
+  },
 }, { timestamps: true });
+
+// Indexing commonly queried fields, avoiding duplicates
+listingSchema.index({ price: 1 });
+listingSchema.index({ residenceType: 1 });
 
 // Create Listing Model
 const Listing = mongoose.model('Listing', listingSchema);

@@ -2,21 +2,22 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const listingsRoutes = require('./routes/Listing.js');
-const adminRoutes = require('./routes/Admin.js'); // Import the admin routes
-
-
+const adminRoutes = require('./routes/Admin.js'); // Admin routes for managing listings
+const adminLoginRoutes = require('./routes/AdminLogin.js'); // Admin login route
+const uploadRoutes = require('./routes/Upload');
 require('dotenv').config();
 
 const app = express();
 
 // Middleware
-app.use(cors()); // Allow all origins, or configure as needed
-app.use(express.json()); // Parse JSON bodies
+app.use(cors()); // Allow cross-origin requests (configure as needed)
+app.use(express.json()); // Parse JSON request bodies
 
 // Routes
-app.use('/api/listings', listingsRoutes);
-app.use('/api/admin', adminRoutes); // Admin-specific routes
-
+app.use('/api/listings', listingsRoutes);           // Listing management routes
+app.use('/api/admin', adminRoutes);                 // Admin-specific routes
+app.use('/api/adminlogin', adminLoginRoutes);       // Admin login route
+app.use('/api/upload', uploadRoutes);
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))

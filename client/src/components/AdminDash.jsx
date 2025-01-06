@@ -9,6 +9,8 @@ const AdminDash = () => {
   const [rooms, setRooms] = useState('');
   const [residenceType, setResidenceType] = useState('House');
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false); // To manage loading state
+  const [errorMessage, setErrorMessage] = useState(''); // To display error messages
 
   const handleImageChange = (e) => {
     setImages(e.target.files);
@@ -31,19 +33,44 @@ const AdminDash = () => {
     }
 
     try {
-        // Send the POST request without capturing the response
-        await axios.post('/api/listings', formData);
-        alert('Listing posted successfully!');
-      } catch (error) {
-        console.error('Error posting listing:', error);
-        alert('Failed to post listing.');
+      setLoading(true);
+      setErrorMessage('');
+
+      // Get the admin token from localStorage
+      const adminToken = localStorage.getItem('adminToken');
+      if (!adminToken) {
+        throw new Error('No admin token found.');
       }
+
+      // Send the POST request to the backend
+      await axios.post('/api/listings', formData, {
+        headers: {
+          'Authorization': `Bearer ${adminToken}`,
+        },
+      });
       
+      // Clear form fields after successful submission
+      setTitle('');
+      setDescription('');
+      setPrice('');
+      setBathrooms('');
+      setRooms('');
+      setResidenceType('House');
+      setImages([]);
+
+      alert('Listing posted successfully!');
+    } catch (error) {
+      console.error('Error posting listing:', error);
+      setErrorMessage(error.response ? error.response.data.error : 'Failed to post listing');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div>
       <h1>Post a New Listing</h1>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <label>Title</label>
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
@@ -77,7 +104,9 @@ const AdminDash = () => {
         <label>Images</label>
         <input type="file" multiple onChange={handleImageChange} />
 
-        <button type="submit">Post Listing</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Posting...' : 'Post Listing'}
+        </button>
       </form>
     </div>
   );
