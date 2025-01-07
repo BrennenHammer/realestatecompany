@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { uploadImage } = require('../utils/cloudinary');
+const { uploadImage } = require('../Utilities/Cloudinary');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' }); // Temporary folder for multer
 

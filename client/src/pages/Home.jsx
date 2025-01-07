@@ -50,71 +50,109 @@ const Home = () => {
   ];
   return (
     <HomeContainer>
-       <Navbar />
+      <Logincontact>
+      <Login href="/login">Log In</Login>
+      <Contact href="/contact">Contact</Contact>
+      </Logincontact>
+      <Navbar />
       <ContentWrapper>
-        <Name>
-          Default Real Estate
-        </Name>
-        <Description>
-          Find your dream home
-        </Description>
+        <Name>Default Real Estate</Name>
+        <Description>Find your dream home</Description>
         <CallToAction>
           <button>Learn More</button>
         </CallToAction>
       </ContentWrapper>
       <ListingsContainer>
-      <h1>Available Listings</h1>
-      <p>Browse through our available listings and find your perfect match.</p>
-      <ListingsContent>
-    <div>Listing 1</div>
-    <div>Listing 2</div>
-    <div>Listing 3</div>
-    <div>Listing 1</div>
-    <div>Listing 2</div>
-    <div>Listing 3</div>
-    <ListingButton>All listings</ListingButton>
-  </ListingsContent>
-    </ListingsContainer>
-    <EventsContainer>
-      <Header3>Upcoming Events</Header3>
-      <Description3>
-        Explore our upcoming real estate events. Attend open houses, seminars, and expos to find your dream home or learn more about the market.
-      </Description3>
-      <EventList>
-        {sampleEvents.map((event) => (
-          <EventCard key={event.id}>
-            <EventTitle>{event.title}</EventTitle>
-            <EventDetails>
-              <p>Date: {event.date}</p>
-              <p>Location: {event.location}</p>
-            </EventDetails>
-          </EventCard>
-        ))}
-      </EventList>
-    </EventsContainer>
-    <AboutContainer>
-
-       <Content>
-        <h1>About Us</h1>
-        <p>
-          At <span>[Your Company Name]</span>, we are driven by a dedication to excellence and 
-          a passion for delivering top-tier <span>[products/services]</span>. Founded on the principles 
-          of integrity and innovation, we work tirelessly to meet the needs of our clients while 
-          setting new benchmarks in quality. Our journey is guided by a single vision: making a 
-          meaningful impact in everything we do.
-        </p>
-      </Content>
-
-      <ImageSection>
-        <h2>About Our Founder</h2>
-        <img src="https://via.placeholder.com/300x300" alt="Founder Portrait" />
-        <Caption>
-          [Your Founder’s Name]—the visionary behind our mission, inspiring us every step of the way.
-        </Caption>
-      </ImageSection>
-    </AboutContainer>
+        <h1>Available Listings</h1>
+        <p>Browse through our available listings and find your perfect match.</p>
+        <ListingsContent>
+          <div>Listing 1</div>
+          <div>Listing 2</div>
+          <div>Listing 3</div>
+          <div>Listing 1</div>
+          <div>Listing 2</div>
+          <div>Listing 3</div>
+          <ListingButton>All listings</ListingButton>
+        </ListingsContent>
+      </ListingsContainer>
+      <EventsContainer>
+        <Header3>Upcoming Events</Header3>
+        <Description3>
+          Explore our upcoming real estate events. Attend open houses, seminars, and expos to find your dream home or learn more about the market.
+        </Description3>
+        <EventList>
+          {sampleEvents.map((event) => (
+            <EventCard key={event.id}>
+              <EventTitle>{event.title}</EventTitle>
+              <EventDetails>
+                <p>Date: {event.date}</p>
+                <p>Location: {event.location}</p>
+              </EventDetails>
+            </EventCard>
+          ))}
+        </EventList>
+      </EventsContainer>
+      <ServicesContainer>
+        <Header5>Our Services</Header5>
+        <ServiceList>
+          {services.map((service, index) => (
+            <ServiceCard key={index}>
+              <Icon>{service.icon}</Icon>
+              <ServiceTitle>{service.title}</ServiceTitle>
+              <ServiceDescription>{service.description}</ServiceDescription>
+            </ServiceCard>
+          ))}
+        </ServiceList>
+      </ServicesContainer>
+      <PageContainer>
+        <Section>
+          <TextContainer>
+            <Header6>Find Your Home Worth</Header6>
+            <Description6>
+              Curious about your home's value? Get an instant and accurate home valuation today!
+            </Description6>
+            <InputContainer>
+              <Input6 type="email" placeholder="Enter your email" />
+              <SubmitButton6>Get Home Worth</SubmitButton6>
+            </InputContainer>
+          </TextContainer>
+          <ImageContainer>
+            <Image src={homeWorthImage} alt="Home Worth" />
+          </ImageContainer>
+        </Section>
+        <Section>
+          <ImageContainer>
+            <Image src={listingAlertImage} alt="Listing Alert" />
+          </ImageContainer>
+          <TextContainer>
+            <Header6>Sign Up for Listing Alerts</Header6>
+            <Description6>
+              Be the first to know about new listings in your area. Subscribe to get alerts directly to your inbox.
+            </Description6>
+            <InputContainer>
+              <Input6 type="email" placeholder="Enter your email" />
+              <SubmitButton6>Subscribe</SubmitButton6>
+            </InputContainer>
+          </TextContainer>
+        </Section>
+      </PageContainer>
+      <AboutContainer>
+        <Content>
+          <h1>About Us</h1>
+          <p>
+            At <span>[Your Company Name]</span>, we are driven by a dedication to excellence and a passion for delivering top-tier <span>[products/services]</span>. Founded on the principles of integrity and innovation, we work tirelessly to meet the needs of our clients while setting new benchmarks in quality. Our journey is guided by a single vision: making a meaningful impact in everything we do.
+          </p>
+        </Content>
+        <ImageSection>
+          <h2>About Our Founder</h2>
+          <img src="https://via.placeholder.com/300x300" alt="Founder Portrait" />
+          <Caption>
+            [Your Founder’s Name]—the visionary behind our mission, inspiring us every step of the way.
+          </Caption>
+        </ImageSection>
+      </AboutContainer>
       <ContactSection>
-        <ContactHeader>Contact me</ContactHeader>
+        <ContactHeader>Contact Me</ContactHeader>
         <ContactDetails>
           <p><strong>Email:</strong> contact@drealestate.com</p>
           <p><strong>Phone:</strong> (123) 456-7890</p>
@@ -131,54 +169,9 @@ const Home = () => {
           </Form>
         </ContactForm>
       </ContactSection>
-    <ServicesContainer>
-      <Header5>Our Services</Header5>
-      <ServiceList>
-        {services.map((service, index) => (
-          <ServiceCard key={index}>
-            <Icon>{service.icon}</Icon>
-            <ServiceTitle>{service.title}</ServiceTitle>
-            <ServiceDescription>{service.description}</ServiceDescription>
-          </ServiceCard>
-        ))}
-      </ServiceList>
-    </ServicesContainer>
-    <PageContainer>
-      <Section>
-        <TextContainer>
-          <Header6>Find Your Home Worth</Header6>
-          <Description6>
-            Curious about your home's value? Get an instant and accurate home valuation today!
-          </Description6>
-          <InputContainer>
-            <Input6 type="email" placeholder="Enter your email" />
-            <SubmitButton6>Get Home Worth</SubmitButton6>
-          </InputContainer>
-        </TextContainer>
-        <ImageContainer>
-          <Image src={homeWorthImage} alt="Home Worth" />
-        </ImageContainer>
-      </Section>
-
-      <Section>
-        <ImageContainer>
-          <Image src={listingAlertImage} alt="Listing Alert" />
-        </ImageContainer>
-        <TextContainer>
-          <Header6>Sign Up for Listing Alerts</Header6>
-          <Description6>
-            Be the first to know about new listings in your area. Subscribe to get alerts directly to your inbox.
-          </Description6>
-          <InputContainer>
-            <Input6 type="email" placeholder="Enter your email" />
-            <SubmitButton6>Subscribe</SubmitButton6>
-          </InputContainer>
-        </TextContainer>
-      </Section>
-    </PageContainer>
     </HomeContainer>
-    
   );
+  
 };
 
 export default Home;
@@ -192,7 +185,28 @@ const HomeContainer = styled.div`
   position: relative;
   border-bottom: 10px solid gray;
 `;
+const Logincontact = styled.div`
 
+`
+const Login = styled.button`
+color: white;
+background: none;
+font-size: 1.0rem;
+border: none;
+position: relative;
+border-radius: 5px;
+margin-left: 85%;
+`
+const Contact = styled.button`
+color: white;
+background: none;
+font-size: 1.0rem;
+border: none;
+border-radius: 5px;
+position: relative;
+top: -20px;
+margin-left: 91%;
+`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
