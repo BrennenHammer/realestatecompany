@@ -195,17 +195,28 @@ font-size: 1.0rem;
 border: none;
 position: relative;
 border-radius: 5px;
+cursor: pointer;
 margin-left: 85%;
+@media (max-width: 800px){
+margin-left: 70%;
+}
 `
 const Contact = styled.button`
 color: white;
 background: none;
 font-size: 1.0rem;
+cursor: pointer;
 border: none;
 border-radius: 5px;
 position: relative;
 top: -20px;
 margin-left: 91%;
+@media (max-width: 800px){
+margin-left: 80%;
+}
+@media (max-width: 500px){
+margin-left: 83%;
+}
 `
 const ContentWrapper = styled.div`
   display: flex;
@@ -292,7 +303,7 @@ left: 50%;
 `
 const EventsContainer = styled.div`
   padding: 20px;
-  max-width: 1200px;
+  max-width: 100%;
   background-color: lightgray;
   margin: 0 auto;
 `;
@@ -345,7 +356,7 @@ const EventDetails = styled.div`
 `;
 
 const AboutContainer = styled.div`
-  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  background-color: lightgrey;
   min-height: 100vh;
   padding: 40px 20px;
   text-align: center;
@@ -366,9 +377,9 @@ const Content = styled.div`
   }
 
   p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #333;
+    font-size: 1.0em;
+    line-height: 1.5;
+    color: black;
 
     span {
       color: black;
@@ -382,14 +393,14 @@ const ImageSection = styled.section`
   text-align: center;
 
   h2 {
-    font-size: 1.8em;
+    font-size: 1.6em;
     color: black;
     margin-bottom: 20px;
   }
 
   img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -400,12 +411,14 @@ const ImageSection = styled.section`
 
 const Caption = styled.p`
   font-size: 1em;
-  color: #555;
+  color: black;
   margin-top: 10px;
 `;
 
 const ContactSection = styled.div`
-  margin-top: 40px;
+  margin-top: -27px;
+  background: lightgrey;
+  border-top: 2px solid white;
 `;
 
 const ContactHeader = styled.h2`
@@ -442,7 +455,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  padding: 10px;
+  padding: 8px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -463,6 +476,7 @@ const SubmitButton = styled.button`
   color: #fff;
   background-color: black;
   border: none;
+  margin-bottom: 5px;
   border-radius: 5px;
   cursor: pointer;
 
@@ -471,7 +485,7 @@ const SubmitButton = styled.button`
   }
 `;
 const ServicesContainer = styled.div`
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   background-color: lightgrey;
   padding: 20px;
