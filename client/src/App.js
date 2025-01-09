@@ -5,11 +5,11 @@ import ListingsPage from './pages/Listings';
 import ServicesPage from './pages/services';
 import EventsPage from './pages/Events';
 import LoginPage from './pages/Login';
-
+import AddListing from './components/AddListing';
 import Homeworthandlistingalerts from './pages/Homeworthandlistingalerts';
 import AdminDash from './components/AdminDash'; // Admin dashboard component
 import AdminRoute from './components/AdminRoute'; // AdminRoute for route protection
-
+import AdminDashboard from './pages/Admindashboard'
 function App() {
   return (
     <Router>
@@ -21,6 +21,10 @@ function App() {
         <Route path="/listings" element={<ListingsPage />} />
         <Route path="/homeworthandlistingalerts" element={<Homeworthandlistingalerts />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/addlisting" element={<AddListing />} />
+        <Route path="/admindashboard" element={<AdminDashboard />} />
+
+
 
         {/* Admin Route with protection */}
         <Route 

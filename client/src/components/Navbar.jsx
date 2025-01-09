@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import styled from 'styled-components';
 
 const Navbar = () => {
@@ -8,14 +8,14 @@ const Navbar = () => {
   return (
     <Header>
       <HeaderName>
-        <Link to="/" style ={{ textDecoration: 'none'}}> {/* Wrap the h1 with the Link */}
+        <Link to="/" style={{ textDecoration: 'none'}}> 
           <h1>D Real Estate</h1>
         </Link>
       </HeaderName>
       <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </MenuButton>
-      <Navigation menuOpen={menuOpen}>
+      <Navigation className={menuOpen ? 'menu-open' : ''}>
         <NavItem href="/">Home</NavItem>
         <NavItem href="/listings">Listings</NavItem>
         <NavItem href="/services">Services</NavItem>
@@ -71,16 +71,19 @@ const Navigation = styled.nav`
   margin-right: 20px;
   margin-top: 10px;
   @media (max-width: 1000px) {
-    display: ${({ menuOpen }) => (menuOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: -20px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-    border-radius: 5px;
-    width: 160px;
+    display: none;
+    &.menu-open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: -20px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 5px;
+      border-radius: 5px;
+      width: 160px;
+    }
   }
 `;
 

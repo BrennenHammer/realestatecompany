@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import homeImage from '../images/homeImage.jpeg';
 import homeWorthImage from '../images/homeworthimage.jpeg';
 import listingAlertImage from '../images/listingalertimage.jpeg';
+import AdminDashboard from "./Admindashboard";
+//import AddListing from './AddListing';
+
 const Home = () => {
   const sampleEvents = [
     { id: 1, title: 'Open House - Luxury Villa', date: '2024-01-10', location: '123 Oceanview Drive' },
@@ -50,10 +53,7 @@ const Home = () => {
   ];
   return (
     <HomeContainer>
-      <Logincontact>
-      <Login href="/login">Log In</Login>
-      <Contact href="/contact">Contact</Contact>
-      </Logincontact>
+     <AdminDashboard>AdminLogin</AdminDashboard>
       <Navbar />
       <ContentWrapper>
         <Name>Default Real Estate</Name>
@@ -185,39 +185,7 @@ const HomeContainer = styled.div`
   position: relative;
   border-bottom: 10px solid gray;
 `;
-const Logincontact = styled.div`
 
-`
-const Login = styled.button`
-color: white;
-background: none;
-font-size: 1.0rem;
-border: none;
-position: relative;
-border-radius: 5px;
-cursor: pointer;
-margin-left: 85%;
-@media (max-width: 800px){
-margin-left: 70%;
-}
-`
-const Contact = styled.button`
-color: white;
-background: none;
-font-size: 1.0rem;
-cursor: pointer;
-border: none;
-border-radius: 5px;
-position: relative;
-top: -20px;
-margin-left: 91%;
-@media (max-width: 800px){
-margin-left: 80%;
-}
-@media (max-width: 500px){
-margin-left: 83%;
-}
-`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
