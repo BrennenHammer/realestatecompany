@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import homeImage from '../images/homeImage.jpeg';
 import homeWorthImage from '../images/homeworthimage.jpeg';
 import listingAlertImage from '../images/listingalertimage.jpeg';
-//import AddListing from './AddListing';
 
 const Home = () => {
   const sampleEvents = [
@@ -177,7 +176,7 @@ const Home = () => {
 export default Home;
 
 const HomeContainer = styled.div`
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   background-image: url(${homeImage});
   background-size: cover;

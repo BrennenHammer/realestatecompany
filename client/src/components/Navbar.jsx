@@ -29,11 +29,11 @@ const Navbar = () => {
 export default Navbar;
 
 const Header = styled.header`
-  width: 100%;
+  width: 97%;
   display: flex;
+  margin-left: 3%;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 `;
@@ -55,7 +55,8 @@ const MenuButton = styled.button`
   border: none;
   border-radius: 5px;
   padding: 0px 7px;
-  margin-right: 80px;
+  margin-right: 65px;
+  margin-top: 10px;
   border: 2px solid black;
   font-size: 1.8rem;
   cursor: pointer;
