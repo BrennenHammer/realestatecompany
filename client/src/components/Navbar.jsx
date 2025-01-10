@@ -40,7 +40,7 @@ const Header = styled.header`
 
 const HeaderName = styled.div`
   h1 {
-    font-size: 2.3rem;
+    font-size: 2.0rem;
     color: black;
     text-decoration: none;
     font-family: cursive;

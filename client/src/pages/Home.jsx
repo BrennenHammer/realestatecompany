@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
+
 import React from 'react';
 import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import homeImage from '../images/homeImage.jpeg';
 import homeWorthImage from '../images/homeworthimage.jpeg';
 import listingAlertImage from '../images/listingalertimage.jpeg';
-import AdminDashboard from "./Admindashboard";
 //import AddListing from './AddListing';
 
 const Home = () => {
@@ -53,8 +54,7 @@ const Home = () => {
   ];
   return (
     <HomeContainer>
-     <AdminDashboard>AdminLogin</AdminDashboard>
-      <Navbar />
+      <Linkadmin to="/admindashboard">Admin Login</Linkadmin>      <Navbar />
       <ContentWrapper>
         <Name>Default Real Estate</Name>
         <Description>Find your dream home</Description>
@@ -178,12 +178,25 @@ export default Home;
 
 const HomeContainer = styled.div`
   height: 100vh;
+  width: 100%;
   background-image: url(${homeImage});
-  height: 100vh;
   background-size: cover;
   background-position: center;
   position: relative;
   border-bottom: 10px solid gray;
+`;
+const Linkadmin = styled(Link)`
+  position: relative;
+  margin-left: 85%;
+  top: 5px;
+  color: white;
+  background-color: none;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  @media (max-width: 700px){
+  margin-left: 70%;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -295,7 +308,7 @@ const EventList = styled.div`
   background-color: white;
   border-radius: 5px;
   border: 1px solid grey;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
 `;
 
@@ -592,6 +605,7 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 20px;
 
   @media (max-width: 768px) {
     margin-bottom: -20px;

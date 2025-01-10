@@ -62,7 +62,7 @@ const AddListing = () => {
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
   max-width: 400px;
   margin: auto;
   input, textarea, select {
@@ -71,7 +71,7 @@ const FormContainer = styled.form`
   }
   button {
     padding: 10px;
-    background-color: #007BFF;
+    background-color: black;
     color: white;
     border: none;
     cursor: pointer;
