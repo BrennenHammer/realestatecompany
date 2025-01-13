@@ -225,7 +225,7 @@ const Description = styled.p`
 const CallToAction = styled.div`
   button {
     padding: 15px 30px;
-    font-size: 18px;
+    font-size: 17px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
