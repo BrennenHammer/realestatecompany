@@ -216,7 +216,7 @@ const Name = styled.div`
 `;
 
 const Description = styled.p`
-  font-size: 2.0rem;
+  font-size: 1.9rem;
   font-weight: bold;
   color: black;
   margin-bottom: 20px;
