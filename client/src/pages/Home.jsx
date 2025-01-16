@@ -244,7 +244,7 @@ const ListingsContainer = styled.div`
   background-color: lightgray;
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2.4em;
     margin-bottom: 10px;
 
   }
