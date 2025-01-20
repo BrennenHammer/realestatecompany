@@ -53,7 +53,7 @@ const Home = () => {
   ];
   return (
     <HomeContainer>
-      <Linkadmin to="/admindashboard">Admin Login</Linkadmin>      <Navbar />
+      <Linkadmin to="/login">Admin Login</Linkadmin>      <Navbar />
       <ContentWrapper>
         <Name>Default Real Estate</Name>
         <Description>Find your dream home</Description>
