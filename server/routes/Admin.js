@@ -28,7 +28,7 @@ const upload = multer({ storage: storage });
 router.post(
   '/listings',
   authenticateAdmin,
-  upload.array('images', 5), // Allows up to 5 images per listing
+  upload.array('images', 20), // Allows up to 5 images per listing
   [
     body('title').notEmpty().withMessage('Title is required'),
     body('description').notEmpty().withMessage('Description is required'),

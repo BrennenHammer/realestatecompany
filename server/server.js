@@ -5,6 +5,8 @@ const listingsRoutes = require('./routes/Listing.js');
 const adminRoutes = require('./routes/Admin.js'); // Admin routes for managing listings
 const adminLoginRoutes = require('./routes/AdminLogin.js'); // Admin login route
 const uploadRoutes = require('./routes/Upload');
+const authRouter = require('./routes/Auth.js');
+
 require('dotenv').config();
 
 const app = express();
@@ -18,8 +20,13 @@ app.use('/api/listings', listingsRoutes);           // Listing management routes
 app.use('/api/admin', adminRoutes);                 // Admin-specific routes
 app.use('/api/adminlogin', adminLoginRoutes);       // Admin login route
 app.use('/api/upload', uploadRoutes);
+app.use('/api/auth', authRouter);
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
+})
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => {
     console.error('Failed to connect to MongoDB:', err);
@@ -36,5 +43,5 @@ app.use((err, req, res, next) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
