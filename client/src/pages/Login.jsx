@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
+import styled from 'styled-components';
+
+// Create an Axios instance with the correct baseURL
+const api = axios.create({
+  baseURL: 'http://localhost:4000/api/adminlogin',
+});
 
 const AdminLogin = () => {
   const [username, setUsername] = useState('');
@@ -11,8 +18,8 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/admin/login', { username, password });
-      localStorage.setItem('adminToken', response.data.token); // Store the JWT in local storage
+      const { data } = await api.post('/login', { username, password });
+      localStorage.setItem('adminToken', data.token); // Store the JWT in local storage
       // Redirect to the admin dashboard or other protected area
       window.location.href = '/admin/dashboard';
     } catch (error) {
@@ -27,7 +34,7 @@ const AdminLogin = () => {
       return;
     }
     try {
-      const response = await axios.post('/api/admin/register', { username, password });
+      await api.post('/register', { username, password });
       setError('Registration successful. Please log in.');
       setIsRegistering(false);
     } catch (error) {
@@ -36,49 +43,119 @@ const AdminLogin = () => {
   };
 
   return (
-    <div>
-      <h2>{isRegistering ? 'Admin Register' : 'Admin Login'}</h2>
-      <form onSubmit={isRegistering ? handleRegister : handleLogin}>
-        <div>
-          <label>Username</label>
-          <input
+    <Container>
+      <Navbar />
+      <Title>{isRegistering ? 'Admin Register' : 'Admin Login'}</Title>
+      <Form onSubmit={isRegistering ? handleRegister : handleLogin}>
+        <InputContainer>
+          <Label>Username</Label>
+          <Input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </div>
-        <div>
-          <label>Password</label>
-          <input
+        </InputContainer>
+        <InputContainer>
+          <Label>Password</Label>
+          <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </div>
+        </InputContainer>
         {isRegistering && (
-          <div>
-            <label>Confirm Password</label>
-            <input
+          <InputContainer>
+            <Label>Confirm Password</Label>
+            <Input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-          </div>
+          </InputContainer>
         )}
-        <button type="submit">{isRegistering ? 'Register' : 'Login'}</button>
-        {error && <p>{error}</p>}
+        <Button type="submit">{isRegistering ? 'Register' : 'Login'}</Button>
+        {error && <ErrorText>{error}</ErrorText>}
         {!isRegistering && (
-          <p>
+          <RegisterText>
             Don't have an account?{' '}
-            <button onClick={() => setIsRegistering(true)}>Register</button>
-          </p>
+            <RegisterButton onClick={() => setIsRegistering(true)}>Register</RegisterButton>
+          </RegisterText>
         )}
-      </form>
-    </div>
+      </Form>
+    </Container>
   );
 };
 
 export default AdminLogin;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+`;
+
+const Title = styled.h2`
+  font-size: 24px;
+  margin-bottom: 20px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+`;
+
+const InputContainer = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Label = styled.label`
+  font-size: 16px;
+  margin-bottom: 10px;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+`;
+
+const Button = styled.button`
+  width: 85%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-left: 20px;
+  background-color: darkgreen;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+`;
+
+const ErrorText = styled.p`
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+`;
+
+const RegisterText = styled.p`
+  font-size: 14px;
+  margin-top: 10px;
+`;
+
+const RegisterButton = styled.button`
+  background-color: darkgreen;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+`;

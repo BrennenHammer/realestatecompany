@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Set up the axios instance
 const api = axios.create({
-  baseURL: '/api/admin', // You can set the base URL for the admin API here
+  baseURL: 'http://localhost:4000/api/admin',
 });
 
 // Function to get listings
